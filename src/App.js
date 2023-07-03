@@ -1,10 +1,13 @@
 import './App.css';
 import CountriesList from './components/CountruesList';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <div className="App">
-    <CountriesList />
+      <Navbar>
+      </Navbar>
+      <CountriesList />
     </div>
   );
 }

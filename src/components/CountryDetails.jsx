@@ -9,7 +9,7 @@ const CountryDetails = ({ countries, info }) => {
   const [newCountryInfo, setNewCountryInfo] = useState([]);
   const [allCountries, setAllCountries] = useState();
 
-  
+
   if (info.length !== 0 && info !== countryInfo) {
     setAllCountries(countries);
     setCountryInfo(info);
@@ -18,40 +18,40 @@ const CountryDetails = ({ countries, info }) => {
   const displayNewCountry = ((newCLickedCOuntry) => {
     setNewCountryInfo(newCLickedCOuntry);
   })
-  
+
   if (newCountryInfo.length !== 0) {
 
     return (
       <div id="info" className=" m-5 ">
         <img src={`https://flagpedia.net/data/flags/icon/72x54/${newCountryInfo.alpha2Code.toLowerCase()}.png`} alt="countryFlag" />
-        <h3></h3>
+        <h3>{newCountryInfo.name.common}</h3>
         <div className='data'>
-          <p>Capital</p>
-          <p>{}</p>
+          <p>Capital: {newCountryInfo.capital}</p>
         </div>
         <div>
-          <p>Area</p>
-          <p>{}</p>
+          <p>Area: {newCountryInfo.area}</p>
         </div>
         <div>
-          <p>Borders</p>
-          <ul>
-            <li>
-              {newCountryInfo.borders.map(country => allCountries.map(borderCountry => {
+          <p>Borders :
+            <ul>
+              <li>
+                {newCountryInfo.borders.map(country => allCountries.map(borderCountry => {
 
-                if (borderCountry.alpha3Code === country) {
-                
-                  return (
+                  if (borderCountry.alpha3Code === country) {
 
-                    <p>
-                      <Link onClick={() => displayNewCountry(borderCountry)}>{borderCountry.name.common}</Link>
+                    return (
 
-                    </p>
-                  )
-                }
-              }))}
-            </li>
-          </ul>
+                      <p>
+                        <Link onClick={() => displayNewCountry(borderCountry)}>{borderCountry.name.common}</Link>
+
+                      </p>
+                    )
+                  }
+                }))}
+              </li>
+            </ul>
+          </p>
+
         </div>
 
 
@@ -65,14 +65,12 @@ const CountryDetails = ({ countries, info }) => {
     return (
       <div id="info" className=" m-5 " >
         <img src={`https://flagpedia.net/data/flags/icon/72x54/${countryInfo.alpha2Code.toLowerCase()}.png`} alt="countryFlag" />
-        <h3></h3>
+        <h3>{countryInfo.name.common}</h3>
         <div className='data'>
-          <p>Capital</p>
-          <p>{}</p>
+          <p>Capital: {countryInfo.capital}</p>
         </div>
         <div>
-          <p>Area</p>
-          <p>{}</p>
+          <p>Area: {countryInfo.area}</p>
         </div>
         <div>
           <p>Borders</p>
